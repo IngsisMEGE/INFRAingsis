@@ -1,4 +1,7 @@
 dev/.snippetManagerEnv
 dev/.printscriptEnv
 dev/.ruleManagerEnv
+prod/.snippetManagerEnv
+prod/.printscriptEnv
+prod/.ruleManagerEnv
 .idea

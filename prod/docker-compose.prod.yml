@@ -1,8 +1,8 @@
-version: '3.8'
+version: "3.8"
 
 services:
   snippetManagerApi:
-    image: ghcr.io/ingsismege/snippetmanager:latest.snapshot
+    image: ghcr.io/ingsismege/snippetmanager:latest
     ports:
       - "8081:8081"
     env_file:
@@ -17,10 +17,10 @@ services:
     env_file:
       - .snippetManagerEnv
     volumes:
-        - snippetManagerPostgres:/var/lib/postgresql/data
+      - snippetManagerPostgres:/var/lib/postgresql/data
 
   printscriptApi:
-    image: ghcr.io/ingsismege/printscriptapi:latest.snapshot
+    image: ghcr.io/ingsismege/printscriptapi:latest
     ports:
       - "8080:8080"
     env_file:
@@ -38,7 +38,7 @@ services:
       - printscriptPostgres:/var/lib/postgresql/data
 
   ruleManagerApi:
-    image: ghcr.io/ingsismege/rulemanager:latest.snapshot
+    image: ghcr.io/ingsismege/rulemanager:latest
     ports:
       - "8082:8082"
     env_file:
@@ -55,7 +55,7 @@ services:
     volumes:
       - ruleManagerPostgres:/var/lib/postgresql/data
 
-  apiDev:
+  api:
     container_name: "asset_service"
     image: ghcr.io/austral-ingsis/snippet-asset-service:latest
     ports:
@@ -77,8 +77,8 @@ services:
       - blob:/workspace
 
 volumes:
-    blob:
-    snippetManagerPostgres:
-    printscriptPostgres:
-    ruleManagerPostgres:
+  blob:
+  snippetManagerPostgres:
+  printscriptPostgres:
+  ruleManagerPostgres:
 
