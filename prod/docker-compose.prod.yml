@@ -60,7 +60,7 @@ services:
     ports:
       - "5437:5437"
     env_file:
-      - .env
+      - .testManagerEnv
     volumes:
       - testManagerPostgres:/var/lib/postgresql/data
 
