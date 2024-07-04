@@ -62,7 +62,7 @@ services:
     env_file:
       - .env
     volumes:
-      - test_manager_data:/var/lib/postgresql/data
+      - testManagerPostgres:/var/lib/postgresql/data
 
   testManagerApi:
     image: ghcr.io/ingsismege/testmanager:latest.snapshot
