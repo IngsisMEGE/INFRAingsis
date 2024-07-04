@@ -55,6 +55,25 @@ services:
     volumes:
       - ruleManagerPostgres:/var/lib/postgresql/data
 
+  testManagerPostgres:
+    image: postgres:13
+    ports:
+      - "5437:5437"
+    env_file:
+      - .testManagerEnv
+    volumes:
+      - testManagerPostgres:/var/lib/postgresql/data
+
+  testManagerApi:
+    image: ghcr.io/ingsismege/testmanager:latest
+    ports:
+      - "8083:8083"
+    env_file:
+      - .testManagerEnv
+    depends_on:
+      - testManagerPostgres
+
+
   api:
     container_name: "asset_service"
     image: ghcr.io/austral-ingsis/snippet-asset-service:latest
@@ -81,4 +100,5 @@ volumes:
   snippetManagerPostgres:
   printscriptPostgres:
   ruleManagerPostgres:
+  testManagerPostgres:
 
