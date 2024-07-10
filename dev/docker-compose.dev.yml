@@ -9,6 +9,7 @@ services:
       - .snippetManagerEnv
     depends_on:
       - snippetManagerPostgres
+      - redis
 
   snippetManagerPostgres:
     image: postgres:13
@@ -27,6 +28,7 @@ services:
       - .printscriptEnv
     depends_on:
       - printscriptPostgres
+      - redis
 
   printscriptPostgres:
     image: postgres:13
@@ -45,6 +47,7 @@ services:
       - .ruleManagerEnv
     depends_on:
       - ruleManagerPostgres
+      - redis
 
   ruleManagerPostgres:
     image: postgres:13
@@ -95,10 +98,18 @@ services:
     volumes:
       - blob:/workspace
 
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
 volumes:
     blob:
     snippetManagerPostgres:
     printscriptPostgres:
     ruleManagerPostgres:
     testManagerPostgres:
+    redis-data:
 

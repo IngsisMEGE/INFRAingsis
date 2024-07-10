@@ -1,7 +1,11 @@
 dev/.snippetManagerEnv
 dev/.printscriptEnv
 dev/.ruleManagerEnv
+dev/.testManagerEnv
+dev/.assetEnv
 prod/.snippetManagerEnv
 prod/.printscriptEnv
 prod/.ruleManagerEnv
+prod/.testManagerEnv
+prod/.assetEnv
 .idea

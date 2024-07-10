@@ -95,10 +95,18 @@ services:
     volumes:
       - blob:/workspace
 
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
 volumes:
   blob:
   snippetManagerPostgres:
   printscriptPostgres:
   ruleManagerPostgres:
   testManagerPostgres:
+  redis-data:
 
