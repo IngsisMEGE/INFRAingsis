@@ -1,0 +1,22 @@
+name: Redeploy Architecture
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  update-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and restart dev services
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST_DEV }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY_DEV }}
+          script: |
+            cd INFRAingsis/dev/
+            docker compose -f docker-compose.dev.yml stop
+            git pull
+            docker compose -f docker-compose.dev.yml up -d --build
