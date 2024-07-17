@@ -105,6 +105,16 @@ services:
     volumes:
       - redis-data:/data
 
+  nginx:
+    image: ghcr.io/ingsismege/nginxingsis:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - snippetManagerApi
+      - printscriptApi
+      - ruleManagerApi
+      - testManagerApi
+
 volumes:
     blob:
     snippetManagerPostgres:
