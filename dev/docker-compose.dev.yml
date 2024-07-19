@@ -105,6 +105,13 @@ services:
     volumes:
       - redis-data:/data
 
+  printscriptui:
+    image: ghcr.io/ingsismege/printscriptui:latest.snapshot
+    expose:
+      - "80"
+    env_file:
+      - .printscriptuiEnv
+
 
 volumes:
     blob:
