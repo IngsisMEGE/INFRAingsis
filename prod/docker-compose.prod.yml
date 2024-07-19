@@ -112,6 +112,13 @@ services:
       - ruleManagerApi
       - testManagerApi
 
+  printscriptui:
+    image: ghcr.io/ingsismege/printscriptui:latest
+    expose:
+      - "80"
+    env_file:
+      - .printscriptuiEnv
+
 volumes:
   blob:
   snippetManagerPostgres:
